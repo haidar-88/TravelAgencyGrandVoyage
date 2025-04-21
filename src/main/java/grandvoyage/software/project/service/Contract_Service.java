@@ -23,8 +23,12 @@ public class Contract_Service  {
     }
 
     public boolean existsContractBySP(ServiceProvider sp){
-        return contractRepository.existsActiveContractByContract_owner(sp.getCompany_id());
-    }
+            if(service_provider_api_service.existsServiceProviderByCompany_emailEquals(sp.getEmail_address(), sp.getPassword())) {
+                return contractRepository.existsActiveContractByContract_ownerEquals(sp);
+            } else {
+                return false;
+            }
+        }
 
     public Contract saveContract(Contract contract){
         return contractRepository.save(contract);

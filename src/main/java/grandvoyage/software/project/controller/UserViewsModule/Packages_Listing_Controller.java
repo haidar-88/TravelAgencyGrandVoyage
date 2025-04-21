@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import grandvoyage.software.project.service.Accommodation_Listing_Service;
 
 import java.util.Date;
 import java.util.List;
@@ -35,9 +34,9 @@ public class Packages_Listing_Controller {
             @RequestParam(required = false) String status,
             @RequestParam(required = false) Date cancellation_date
     ) {
-        List<Package_Listing> packages = packageListingService.getFilteredPackages(Destination, creation_date, numberTravelers, freeCancellation,
+        return packageListingService.getFilteredPackages(Destination, creation_date, numberTravelers, freeCancellation,
                 guidedTours, AirportTransfers, bundle_price, status, cancellation_date);
-        return packages;
+
     }
 
     @GetMapping()

@@ -41,9 +41,9 @@ public class Travel_Listing {
     private List<Payment> payments;
 
     private Date posted_on_date;
-    private double original_price;
-    private boolean is_discounted;
-    private double discounted_price;
+    private Double original_price;
+    private Boolean is_discounted;
+    private Double discounted_price;
     private String status;
     private Date cancellation_date;
 }
