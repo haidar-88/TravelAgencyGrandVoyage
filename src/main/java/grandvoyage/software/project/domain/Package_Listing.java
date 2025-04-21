@@ -44,11 +44,11 @@ public class Package_Listing {
     private List<Payment> payments;
 
     private Date creation_date;
-    private int numberTravelers;
-    private boolean freeCancellation;
-    private boolean guidedTours;
-    private boolean AirportTransfers;
-    private float bundle_price;
+    private Integer numberTravelers;
+    private Boolean freeCancellation;
+    private Boolean guidedTours;
+    private Boolean AirportTransfers;
+    private Float bundle_price;
     private String status;
     private Date cancellation_date;
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ServiceProviderRepository extends JpaRepository<ServiceProvider, Integer> {
-    ServiceProvider findByEmailAndPassword(String email, String password);
+    ServiceProvider findByEmail_addressEqualsAndPasswordEquals(String email, String password);
+    boolean existsServiceProviderByEmail_addressEqualsAndPasswordEquals(String email, String password);
 
 }

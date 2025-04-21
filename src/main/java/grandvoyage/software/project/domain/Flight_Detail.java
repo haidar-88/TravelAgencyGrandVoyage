@@ -24,13 +24,13 @@ public class Flight_Detail {
     private List<Flight_Layover> layovers;
 
     private String airline_name;
-    private int flight_number;
+    private Integer flight_number;
     private String departure_airport, arrival_airport;
     private String departure_terminal, arrival_terminal;
     private String departure_gate, arrival_gate;
-    private int flight_duration;
+    private Integer flight_duration;
     private String cabin_class;
-    private int baggage_allowance;
-    private boolean meal_included;
+    private Integer baggage_allowance;
+    private Boolean meal_included;
 
 }

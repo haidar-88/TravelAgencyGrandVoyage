@@ -41,19 +41,19 @@ public class Accommodation_Listing {
 
     private String accommodation_name;
     private String accommodation_type;
-    private int star_rating;
-    private boolean single;
-    private boolean double_;
-    private boolean suite;
-    private double original_price_per_night;
-    private boolean gym, pool, wifi;
+    private Integer star_rating;
+    private Boolean single;
+    private Boolean double_;
+    private Boolean suite;
+    private Double original_price_per_night;
+    private Boolean gym, pool, wifi;
 
     private Date posted_on_date;
-    private boolean is_discounted;
-    private double discounted_price_per_night;
+    private Boolean is_discounted;
+    private Double discounted_price_per_night;
     private String address_name;
     private String description;
-    private int max_number_of_travelers;
+    private Integer max_number_of_travelers;
     private String status;
     private Date cancellation_date;
 }

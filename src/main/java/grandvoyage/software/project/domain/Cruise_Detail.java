@@ -27,6 +27,6 @@ public class Cruise_Detail {
     private String arrival_port; // Location of disembarkation
     private Date embarkation_date; // Start of the trip
     private Date disembarkation_date; // End of the trip
-    private int number_of_nights; // Total nights on the cruise
+    private Integer number_of_nights; // Total nights on the cruise
     private String cabin_type; // Room type on the ship
 }

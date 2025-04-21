@@ -1,5 +1,6 @@
 package grandvoyage.software.project.controller.ContractProcessingSubsystem;
 
+import grandvoyage.software.project.DataTransferObjects.LoginRequest;
 import grandvoyage.software.project.domain.*;
 import grandvoyage.software.project.service.Contract_Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,10 @@ public class Contract_API {
         this.service_provider_api_service = spService;
     }
 
-    @GetMapping("/isValidOwner")
-    public boolean IsValidContractOwner(@RequestParam(required = true) String email,
-                                        @RequestParam(required = true) String password){
-            ServiceProvider serviceProvider = service_provider_api_service.getCustomerByEmailAndPassword(email, password);
+    @PostMapping("/isValidOwner")
+    public boolean IsValidContractOwner(@RequestBody LoginRequest loginRequest) {
+            ServiceProvider serviceProvider = service_provider_api_service.getCustomerByEmailAndPassword(
+                    loginRequest.getEmail(), loginRequest.getPassword());
             return contract_service.existsContractBySP(serviceProvider);
     }
 
@@ -37,13 +38,11 @@ public class Contract_API {
                                 @RequestParam (required = true) String status,
                                 @RequestParam (required = true) String service_provided,
                                 @RequestParam (required = true) String company_name,
-                                @RequestParam (required = true) String email,
-                                @RequestParam (required = true) String password
+                                @RequestBody LoginRequest loginRequest
                             ) {
         Contract contract =  contract_service.createContract(start_date, end_date, status, service_provided,
-                company_name, email, password);
+                company_name, loginRequest.getEmail(), loginRequest.getPassword());
         return contract_service.saveContract(contract);
     }
-
 }
 
