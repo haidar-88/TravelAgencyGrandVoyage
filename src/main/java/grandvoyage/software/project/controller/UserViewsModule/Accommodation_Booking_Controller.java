@@ -1,6 +1,7 @@
 package grandvoyage.software.project.controller.UserViewsModule;
 
 import grandvoyage.software.project.DataTransferObjects.LoginRequest;
+import grandvoyage.software.project.domain.Accommodation_Booking;
 import grandvoyage.software.project.domain.Customer;
 import grandvoyage.software.project.domain.Travel_Booking;
 import grandvoyage.software.project.service.Accommodation_Booking_Service;
@@ -24,8 +25,8 @@ public class Accommodation_Booking_Controller {
         this.customerService = customerService;
     }
 
-    @PostMapping("/getBookingsByID")
-    public List<Travel_Booking> getBookingsById(@RequestBody LoginRequest loginRequest ) {
+    @PostMapping("/getAccomodationBookingsByID")
+    public List<Accommodation_Booking> getBookingsById(@RequestBody LoginRequest loginRequest ) {
         Customer customer = customerService.getCustomerByEmailAndPassword(
                 loginRequest.getEmail(), loginRequest.getPassword());
         return accommodationBookingService.findCustomerBooking(customer);

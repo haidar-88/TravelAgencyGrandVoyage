@@ -23,7 +23,7 @@ public class User_Login_Controller {
     @PostMapping("/ValidCredentials")
     public boolean validSPCredentials(@RequestBody LoginRequest loginRequest) {
 
-        return userApiService.existsServiceProviderByCompany_emailEquals(
+        return userApiService.existsCustomerByCompany_emailEquals(
                 loginRequest.getEmail(), loginRequest.getPassword());
     }
 

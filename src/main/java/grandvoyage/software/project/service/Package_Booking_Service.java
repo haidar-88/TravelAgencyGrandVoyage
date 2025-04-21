@@ -21,7 +21,7 @@ public class Package_Booking_Service {
         this.packageBookingRepository = packageBookingRepository;
     }
 
-    public List<Travel_Booking> findCustomerBooking(Customer customer) {
+    public List<Package_Booking> findCustomerBooking(Customer customer) {
         return packageBookingRepository.findAllByCustomer(customer);
     }
 

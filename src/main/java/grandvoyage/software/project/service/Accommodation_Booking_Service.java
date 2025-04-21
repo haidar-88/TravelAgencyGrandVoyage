@@ -21,7 +21,7 @@ public class Accommodation_Booking_Service {
         this.accommodationBookingRepository = accommodationBookingRepository;
     }
 
-    public List<Travel_Booking> findCustomerBooking(Customer customer) {
+    public List<Accommodation_Booking> findCustomerBooking(Customer customer) {
         return accommodationBookingRepository.findAllByCustomer(customer);
     }
 

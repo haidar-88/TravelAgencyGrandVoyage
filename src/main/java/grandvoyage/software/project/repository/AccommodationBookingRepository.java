@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface AccommodationBookingRepository extends JpaRepository<Accommodation_Booking, Integer> {
 
-    List<Travel_Booking> findAllByCustomer(Customer customer);
+    List<Accommodation_Booking> findAllByCustomer(Customer customer);
 }

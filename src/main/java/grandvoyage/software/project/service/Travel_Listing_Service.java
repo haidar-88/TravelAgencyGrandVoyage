@@ -78,6 +78,9 @@ public class Travel_Listing_Service {
         if (updateFlight.getDeparture_gate() != null) {
             flightDetailToUpdate.setDeparture_gate(updateFlight.getDeparture_gate());
         }
+        if(updateFlight.getArrival_gate() != null) {
+            flightDetailToUpdate.setArrival_gate(updateFlight.getArrival_gate());
+        }
         if (updateFlight.getFlight_duration() != null) {
             flightDetailToUpdate.setFlight_duration(updateFlight.getFlight_duration());
         }

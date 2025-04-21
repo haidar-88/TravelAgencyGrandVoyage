@@ -1,11 +1,14 @@
 package grandvoyage.software.project.controller.AccountManagementModule;
 
+import grandvoyage.software.project.DataTransferObjects.LoginRequest;
 import grandvoyage.software.project.domain.ServiceProvider;
 import grandvoyage.software.project.service.Service_Provider_Account_Creation_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -20,12 +23,11 @@ public class Service_Provider_Account_Creation_Controller {
     }
 
     @PostMapping("/createAccount")
-    public ServiceProvider createServiceProviderAccount(String company_name, String company_email,
-                                                        int company_number, String email_address,
-                                                        String password){
+    public ServiceProvider createServiceProviderAccount(@RequestParam String company_name, @RequestParam String company_email,
+                                                        @RequestParam int company_number, @RequestBody LoginRequest loginRequest){
 
         return serviceProviderAccountCreationService.createServiceProviderAccount(company_name, company_email,
-                company_number, email_address, password);
+                company_number, loginRequest.getEmail(), loginRequest.getPassword());
 
     }
 
