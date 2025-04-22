@@ -4,6 +4,7 @@ import grandvoyage.software.project.domain.Customer;
 import grandvoyage.software.project.repository.UserAccountCreationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -14,10 +15,12 @@ import java.util.Date;
 public class User_Account_Creation_Service {
 
     private final UserAccountCreationRepository userAccountCreationRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public User_Account_Creation_Service(UserAccountCreationRepository userAccountCreationRepository) {
+    public User_Account_Creation_Service(UserAccountCreationRepository userAccountCreationRepository, PasswordEncoder passwordEncoder) {
         this.userAccountCreationRepository = userAccountCreationRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -34,6 +37,7 @@ public class User_Account_Creation_Service {
         customer.setLast_name(lastName);
         customer.setPhone_number(phoneNumber);
         customer.setEmail(email);
+        customer.setPassword(passwordEncoder.encode(password));
         customer.setPassword(password);
         customer.setAddress(address);
         customer.setRegistration_date(registrationDate);

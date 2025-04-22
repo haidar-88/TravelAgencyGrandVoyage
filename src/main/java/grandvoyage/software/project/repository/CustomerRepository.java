@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    boolean existsByEmailEqualsAndPasswordEquals(String email, String password);
-
     Customer findByEmailAndPassword(String email, String password);
 }
 

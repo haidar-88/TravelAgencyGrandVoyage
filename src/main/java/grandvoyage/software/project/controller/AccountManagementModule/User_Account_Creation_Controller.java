@@ -5,14 +5,11 @@ import grandvoyage.software.project.domain.Customer;
 import grandvoyage.software.project.service.User_Account_Creation_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-@Controller
+@RestController
 @RequestMapping("/userAccountCreation")
 public class User_Account_Creation_Controller {
 

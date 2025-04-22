@@ -5,13 +5,10 @@ import grandvoyage.software.project.domain.ServiceProvider;
 import grandvoyage.software.project.service.Service_Provider_Account_Creation_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
-@Controller
+@RestController
 @RequestMapping("/serviceProviderAccountCreation")
 public class Service_Provider_Account_Creation_Controller {
 
@@ -24,7 +21,7 @@ public class Service_Provider_Account_Creation_Controller {
 
     @PostMapping("/createAccount")
     public ServiceProvider createServiceProviderAccount(@RequestParam String company_name, @RequestParam String company_email,
-                                                        @RequestParam int company_number, @RequestBody LoginRequest loginRequest){
+                                                        @RequestParam Integer company_number, @RequestBody LoginRequest loginRequest){
 
         return serviceProviderAccountCreationService.createServiceProviderAccount(company_name, company_email,
                 company_number, loginRequest.getEmail(), loginRequest.getPassword());

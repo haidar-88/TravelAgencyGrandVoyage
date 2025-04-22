@@ -8,8 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/SPLogin")
 public class SP_Login_Controller {
 
@@ -21,9 +22,8 @@ public class SP_Login_Controller {
     }
 
     @PostMapping("/ValidCredentials")
-    public boolean ValidSPCredentials(@RequestBody LoginRequest loginRequest) {
-
-        return service_provider_api_service.existsServiceProviderByCompany_emailEquals(
+    public ServiceProvider findByEmailAndPassword(@RequestBody LoginRequest loginRequest) {
+        return service_provider_api_service.findByEmailAndPassword(
                 loginRequest.getEmail(), loginRequest.getPassword());
     }
 }

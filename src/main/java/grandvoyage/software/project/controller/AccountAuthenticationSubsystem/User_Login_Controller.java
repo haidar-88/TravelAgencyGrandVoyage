@@ -1,15 +1,13 @@
 package grandvoyage.software.project.controller.AccountAuthenticationSubsystem;
 
 import grandvoyage.software.project.DataTransferObjects.LoginRequest;
+import grandvoyage.software.project.domain.Customer;
 import grandvoyage.software.project.service.User_API_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/UserLogin")
 public class User_Login_Controller {
 
@@ -21,9 +19,8 @@ public class User_Login_Controller {
     }
 
     @PostMapping("/ValidCredentials")
-    public boolean validSPCredentials(@RequestBody LoginRequest loginRequest) {
-
-        return userApiService.existsCustomerByCompany_emailEquals(
+    public Customer login(@RequestBody LoginRequest loginRequest) {
+        return userApiService.findByEmailAndPassword(
                 loginRequest.getEmail(), loginRequest.getPassword());
     }
 

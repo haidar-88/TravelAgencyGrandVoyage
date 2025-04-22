@@ -4,15 +4,11 @@ import grandvoyage.software.project.DataTransferObjects.LoginRequest;
 import grandvoyage.software.project.domain.*;
 import grandvoyage.software.project.service.Contract_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import grandvoyage.software.project.service.Service_Provider_API_Service;
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/contracts")
 public class Contract_API {
 
@@ -27,7 +23,7 @@ public class Contract_API {
 
     @PostMapping("/isValidOwner")
     public boolean IsValidContractOwner(@RequestBody LoginRequest loginRequest) {
-            ServiceProvider serviceProvider = service_provider_api_service.getCustomerByEmailAndPassword(
+            ServiceProvider serviceProvider = service_provider_api_service.findByEmailAndPassword(
                     loginRequest.getEmail(), loginRequest.getPassword());
             return contract_service.existsContractBySP(serviceProvider);
     }
@@ -40,9 +36,9 @@ public class Contract_API {
                                 @RequestParam (required = true) String company_name,
                                 @RequestBody LoginRequest loginRequest
                             ) {
-        Contract contract =  contract_service.createContract(start_date, end_date, status, service_provided,
+        return contract_service.createContract(start_date, end_date, status, service_provided,
                 company_name, loginRequest.getEmail(), loginRequest.getPassword());
-        return contract_service.saveContract(contract);
     }
+
 }
 
