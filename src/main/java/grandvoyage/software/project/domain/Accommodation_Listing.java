@@ -59,6 +59,15 @@ public class Accommodation_Listing {
     @OneToMany(mappedBy = "accommodationListing")
     private List<Payment> payments;
 
+    @OneToOne
+    @JoinColumn(name = "hotel_listing")
+    private Hotel_Detail hotel;
+
+    @OneToOne
+    @JoinColumn(name = "rental_listing")
+    private Rental_Detail rental;
+
+
 
 
     private String accommodation_name;
