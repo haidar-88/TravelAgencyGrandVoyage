@@ -15,19 +15,19 @@ public class Contract_Service  {
 
 
     private final  ContractRepository contractRepository;
-    private final Service_Provider_API_Service service_provider_api_service;
+    private final Service_Provider_Service service_provider__service;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public Contract_Service(ContractRepository contractRepository, Service_Provider_API_Service service_provider_api_service,
+    public Contract_Service(ContractRepository contractRepository, Service_Provider_Service service_provider__service,
                             PasswordEncoder passwordEncoder) {
         this.contractRepository = contractRepository;
-        this.service_provider_api_service = service_provider_api_service;
+        this.service_provider__service = service_provider__service;
         this.passwordEncoder = passwordEncoder;
     }
 
     public boolean existsContractBySP(ServiceProvider sp){
-            if(service_provider_api_service.findByEmailAndPassword(sp.getEmail_address(), sp.getPassword()) != null) {
+            if(service_provider__service.findByEmailAndPassword(sp.getEmail_address(), sp.getPassword()) != null) {
                 return contractRepository.existsActiveContractByContract_ownerEquals(sp);
             } else {
                 return false;
@@ -38,7 +38,7 @@ public class Contract_Service  {
                                    String company_name, String email, String password){
         List<Travel_Listing> travelListings = new ArrayList<>();
         List<Accommodation_Listing> accommodationListings = new ArrayList<>();
-        ServiceProvider sp = service_provider_api_service.findByEmailAndPassword(email, passwordEncoder.encode(password));
+        ServiceProvider sp = service_provider__service.findByEmailAndPassword(email, passwordEncoder.encode(password));
 
         Contract contract = new Contract();
         contract.setStart_date(start_date);

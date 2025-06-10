@@ -5,25 +5,25 @@ import grandvoyage.software.project.domain.*;
 import grandvoyage.software.project.service.Contract_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import grandvoyage.software.project.service.Service_Provider_API_Service;
+import grandvoyage.software.project.service.Service_Provider_Service;
 import java.util.Date;
 
 @RestController
 @RequestMapping("/contracts")
-public class Contract_API {
+public class Contract_Controller {
 
     private final Contract_Service contract_service;
-    private final Service_Provider_API_Service service_provider_api_service;
+    private final Service_Provider_Service service_provider__service;
 
     @Autowired
-    public Contract_API(Contract_Service contract_service, Service_Provider_API_Service spService) {
+    public Contract_Controller(Contract_Service contract_service, Service_Provider_Service spService) {
         this.contract_service = contract_service;
-        this.service_provider_api_service = spService;
+        this.service_provider__service = spService;
     }
 
     @PostMapping("/isValidOwner")
     public boolean IsValidContractOwner(@RequestBody LoginRequest loginRequest) {
-            ServiceProvider serviceProvider = service_provider_api_service.findByEmailAndPassword(
+            ServiceProvider serviceProvider = service_provider__service.findByEmailAndPassword(
                     loginRequest.getEmail(), loginRequest.getPassword());
             return contract_service.existsContractBySP(serviceProvider);
     }

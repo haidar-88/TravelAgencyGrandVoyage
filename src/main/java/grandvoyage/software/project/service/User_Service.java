@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class User_API_Service {
+public class User_Service {
 
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public User_API_Service(CustomerRepository customerRepository, PasswordEncoder passwordEncoder) {
+    public User_Service(CustomerRepository customerRepository, PasswordEncoder passwordEncoder) {
         this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
     }

@@ -2,7 +2,6 @@ package grandvoyage.software.project.service;
 
 import grandvoyage.software.project.domain.Cruise_Detail;
 import grandvoyage.software.project.domain.Flight_Detail;
-import grandvoyage.software.project.domain.Package_Listing;
 import grandvoyage.software.project.domain.Travel_Listing;
 import grandvoyage.software.project.repository.CruiseDetailRepository;
 import grandvoyage.software.project.repository.FlightDetailRepository;
@@ -199,5 +198,9 @@ public class Travel_Listing_Service {
             return true;
         }
         return false;
+    }
+
+    public Travel_Listing save(Travel_Listing travelListing) {
+        return travelListingRepository.save(travelListing);
     }
 }

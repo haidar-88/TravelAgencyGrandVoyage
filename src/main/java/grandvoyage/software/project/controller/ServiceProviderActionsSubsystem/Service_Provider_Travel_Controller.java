@@ -5,20 +5,26 @@ import grandvoyage.software.project.domain.Flight_Detail;
 import grandvoyage.software.project.domain.Travel_Listing;
 import grandvoyage.software.project.service.Travel_Listing_Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/ServiceProviderTravelController")
-public class UD_Travel_Controller {
+@RequestMapping("/ServiceProviderTravel")
+public class Service_Provider_Travel_Controller {
 
     private final Travel_Listing_Service travelListingService;
 
     @Autowired
-    public UD_Travel_Controller(Travel_Listing_Service travelListingService) {
+    public Service_Provider_Travel_Controller(Travel_Listing_Service travelListingService) {
         this.travelListingService = travelListingService;
+    }
+
+    @PostMapping("/createTravelListing")
+    public ResponseEntity<Travel_Listing> createTravelListing(@RequestBody Travel_Listing travelListing) {
+        Travel_Listing savedListing = travelListingService.save(travelListing);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedListing);
     }
 
     @PutMapping("/updateFlightListing/{id}")

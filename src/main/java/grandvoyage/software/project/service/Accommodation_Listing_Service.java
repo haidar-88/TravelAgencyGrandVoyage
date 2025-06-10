@@ -111,4 +111,8 @@ public class Accommodation_Listing_Service {
         }
         return false;
     }
+
+    public Accommodation_Listing save(Accommodation_Listing_Service accommodationListing) {
+        return accommodationListingRepository.save(accommodationListing);
+    }
 }

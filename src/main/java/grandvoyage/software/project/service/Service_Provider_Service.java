@@ -7,13 +7,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Service_Provider_API_Service {
+public class Service_Provider_Service {
 
     private final PasswordEncoder passwordEncoder;
     private final ServiceProviderRepository spRepository;
 
     @Autowired
-    public Service_Provider_API_Service(ServiceProviderRepository serviceProviderRepository, PasswordEncoder passwordEncoder) {
+    public Service_Provider_Service(ServiceProviderRepository serviceProviderRepository, PasswordEncoder passwordEncoder) {
         this.spRepository = serviceProviderRepository;
         this.passwordEncoder = passwordEncoder;
     }

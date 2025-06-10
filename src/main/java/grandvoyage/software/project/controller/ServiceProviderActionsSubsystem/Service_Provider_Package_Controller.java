@@ -4,20 +4,19 @@ import grandvoyage.software.project.domain.*;
 import grandvoyage.software.project.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/AdminPackage")
-public class CUD_Package_Controller {
+@RequestMapping("/ServiceProviderPackage")
+public class Service_Provider_Package_Controller {
 
     private final Package_Listing_Service packageListingService;
 
     @Autowired
-    public CUD_Package_Controller(Package_Listing_Service packageListingService) {
+    public Service_Provider_Package_Controller(Package_Listing_Service packageListingService) {
         this.packageListingService = packageListingService;
     }
 
